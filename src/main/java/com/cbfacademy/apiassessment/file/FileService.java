@@ -22,11 +22,10 @@ import org.springframework.web.multipart.MultipartFile;
 @Service
 public class FileService {
 
-    @Value("classpath:uploaded_files.json")
-    private Resource jsonResource;
 
 
-    private final String UPLOAD_DIRECTORY = "C:\\Users\\admin\\Desktop\\JAVA\\uploadfiles";
+
+    private final String UPLOAD_DIRECTORY = "uploadfiles";
     private final FileUtil fileUtil;
 
     public FileService(FileUtil fileUtil) {
@@ -111,7 +110,7 @@ public class FileService {
 
 
     // Get uploaded file by ID
-    public ResponseEntity<FileBaseResponse> getUploadedFileById(@PathVariable String id) {
+    public ResponseEntity<FileBaseResponse> getUploadedFileById(String id) {
         FileBaseResponse response = new FileBaseResponse();
         HttpStatus httpStatus;
         try {

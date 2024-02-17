@@ -22,7 +22,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @Component
 public class FileUtil {
 
-    private final String JSON_FILE = "C:\\Users\\admin\\Desktop\\JAVA\\uploadfiles\\uploaded_files.json";
+    private final String JSON_FILE = "uploadfiles\\uploaded_files.json";
 
         public String generateFileId() {
         // Generate a random UUID

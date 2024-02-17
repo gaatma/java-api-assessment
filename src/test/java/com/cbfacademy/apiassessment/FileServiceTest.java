@@ -5,6 +5,7 @@ import com.cbfacademy.apiassessment.file.FileBaseResponse;
 import com.cbfacademy.apiassessment.file.FileModel;
 import com.cbfacademy.apiassessment.file.FileService;
 import com.cbfacademy.apiassessment.file.FileUser;
+import net.minidev.json.JSONObject;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,18 +35,22 @@ public class FileServiceTest {
 
     private FileModel testFile;
 
+    private FileModel testFileUpdateNotFound;
+
     private MultipartFile mockFile;
 
     private MultipartFile imageMockFile;
 
     private List<FileModel> testUploadedFiles = new ArrayList<>();
+    private String uploadedFileId;
+
 
 
     @BeforeEach
     public void setUp() throws Exception {
 
 
-        testFile = new FileModel(UUID.randomUUID().toString(), "testFile.txt", "/uploads/file/testfile.txt", Timestamp.from(Instant.now()).toString(), "234343", "text/plain", new FileUser(UUID.randomUUID().toString(), "Gifty"));
+
 
         mockFile = new MockMultipartFile(
                 "file",
@@ -64,11 +69,20 @@ public class FileServiceTest {
 
         );
 
+        ResponseEntity<FileBaseResponse> response = fileService.processUploadedFile(imageMockFile, "Gifty");
+
+        uploadedFileId = ((FileModel) response.getBody().getData()).getId();
+
+        testFile = new FileModel(uploadedFileId, "testFile.txt", "/uploads/file/testfile.txt", Timestamp.from(Instant.now()).toString(), "234343", "text/plain", new FileUser(UUID.randomUUID().toString(), "Gifty"));
+
+        testFileUpdateNotFound =  new FileModel("UD", "testFile.txt", "/uploads/file/testfile.txt", Timestamp.from(Instant.now()).toString(), "234343", "text/plain", new FileUser(UUID.randomUUID().toString(), "Gifty"));
+
+
     }
 
 
     @Test
-    @Description("/processUploadedFile method returns a 200 response")
+    @Description("processUploadedFile method returns a 200 response")
     public void processUploadFile_ExpectedSuccessResponse() {
         ResponseEntity<FileBaseResponse> response = fileService.processUploadedFile(imageMockFile, "Gifty");
 
@@ -77,7 +91,7 @@ public class FileServiceTest {
     }
 
     @Test
-    @Description("/processUploadedFile method returns a 500 response for invalid file")
+    @Description("processUploadedFile method returns a 500 response for invalid file")
     public void processUploadFile_ExpectedErrorResponse() {
         ResponseEntity<FileBaseResponse> response = fileService.processUploadedFile(mockFile, "Gifty");
 
@@ -86,11 +100,63 @@ public class FileServiceTest {
     }
 
     @Test
-    @Description("/getAllUploadedFiles expecting a 200 response for success")
+    @Description("getAllUploadedFiles expecting a 200 response for success")
     public void getAllUploadedFiles_ExpectedSuccessResponse() {
         ResponseEntity<FileBaseResponse> response = fileService.getAllUploadedFiles();
 
         assertEquals(200, response.getStatusCode().value());
+
+    }
+
+    @Test
+    @Description("getUploadedFileById expecting a 200 response for success")
+    public void getUploadedFileById_ExpectedSuccessResponse() {
+        ResponseEntity<FileBaseResponse> response = fileService.getUploadedFileById(uploadedFileId);
+
+        assertEquals(200, response.getStatusCode().value());
+    }
+
+    @Test
+    @Description("getUploadedFileById method returns a 500 response for invalid file")
+    public void getUploadedFileById_ExpectedErrorResponse() {
+        ResponseEntity<FileBaseResponse> response = fileService.getUploadedFileById("AA");
+
+        assertEquals(500, response.getStatusCode().value());
+
+    }
+
+    @Test
+    @Description("updateUploadedFile expecting a 200 response for success")
+    public void updateUploadedFile_ExpectedSuccessResponse() {
+        ResponseEntity<FileBaseResponse> response = fileService.updateUploadedFile(testFile);
+
+        assertEquals(200, response.getStatusCode().value());
+    }
+
+    @Test
+    @Description("updateUploadedFile method returns a 500 response for invalid file")
+    public void updateUploadedFile_ExpectedErrorResponse() {
+        ResponseEntity<FileBaseResponse> response = fileService.updateUploadedFile(testFileUpdateNotFound);
+
+        assertEquals(500, response.getStatusCode().value());
+    }
+
+
+
+    @Test
+    @Description("deleteUploadedFile expecting a 200 response for success")
+    public void deleteUploadedFile_ExpectedSuccessResponse() {
+        ResponseEntity<FileBaseResponse> response = fileService.deleteUploadedFile(uploadedFileId);
+
+        assertEquals(200, response.getStatusCode().value());
+    }
+
+    @Test
+    @Description("deleteUploadedFile method returns a 500 response for invalid file")
+    public void deleteUploadedFile_ExpectedErrorResponse() {
+        ResponseEntity<FileBaseResponse> response = fileService.deleteUploadedFile("AA");
+
+        assertEquals(500, response.getStatusCode().value());
 
     }
 }
