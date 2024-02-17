@@ -41,7 +41,6 @@ public class FileServiceTest {
 
     private MultipartFile imageMockFile;
 
-    private List<FileModel> testUploadedFiles = new ArrayList<>();
     private String uploadedFileId;
 
 

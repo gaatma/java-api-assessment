@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SpringBootTest
 public class FileUtilTest {
@@ -28,6 +29,7 @@ public class FileUtilTest {
     private MultipartFile mockFile;
 
     private MultipartFile imageMockFile;
+
 
 
 
@@ -57,19 +59,17 @@ public class FileUtilTest {
         );
 
 
-
-
-
-
     }
 
 
     @Test
-    @Description("validateFile method returns a 200 response")
-    public void validateFile_ExpectedSuccessResponse() {
-        ResponseEntity<FileBaseResponse> response = fileUtil.validateFile(imageMockFile, "Gifty");
+    @Description("validateFile method throws a ValidateFileException")
+    public void validateFile_ThrowsValidateFileException() {
+        // Use assertThrows to check if the method throws the expected exception
+        assertThrows(ValidateFileException.class, () -> {
+            fileUtil.validateFile(mockFile);
+        });
 
-        assertEquals(200, response.getStatusCode().value());
 
     }
 
