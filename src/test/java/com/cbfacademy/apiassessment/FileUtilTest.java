@@ -1,6 +1,5 @@
 package com.cbfacademy.apiassessment;
 
-
 import com.cbfacademy.apiassessment.file.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,8 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 public class FileUtilTest {
@@ -30,17 +28,8 @@ public class FileUtilTest {
 
     private MultipartFile imageMockFile;
 
-
-
-
-
-
     @BeforeEach
     public void setUp() throws Exception {
-
-
-
-
         mockFile = new MockMultipartFile(
                 "file",
                 "test.txt",
@@ -48,7 +37,6 @@ public class FileUtilTest {
                 "This is the content of the mock file".getBytes()
 
         );
-
 
         imageMockFile = new MockMultipartFile(
                 "file",
@@ -58,9 +46,7 @@ public class FileUtilTest {
 
         );
 
-
     }
-
 
     @Test
     @Description("validateFile method throws a ValidateFileException")
@@ -69,8 +55,31 @@ public class FileUtilTest {
         assertThrows(ValidateFileException.class, () -> {
             fileUtil.validateFile(mockFile);
         });
+    }
 
+    @Test
+    @Description("validateFile method passes validation for an image file")
+    public void validateFile_PassesImageValidation() {
+        // Use assertDoesNotThrow to check if the method passes validation for an image file
+        assertDoesNotThrow(() -> {
+            fileUtil.validateFile(imageMockFile);
+        });
+    }
 
+    @Test
+    @Description("generateFileId method generates a non-null UUID")
+    public void generateFileId_NotNull() {
+        // Generate a file ID and check if it's not null
+        String fileId = fileUtil.generateFileId();
+        assertNotNull(fileId);
+    }
+
+    @Test
+    @Description("fileTimeStamp method returns a non-null timestamp")
+    public void fileTimeStamp_NotNull() {
+        // Generate a timestamp and check if it's not null
+        String timeStamp = fileUtil.fileTimeStamp();
+        assertNotNull(timeStamp);
     }
 
 
