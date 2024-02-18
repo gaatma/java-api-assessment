@@ -1,31 +1,59 @@
 package com.cbfacademy.apiassessment.file;
 
-// Importing Lombok annotations for getter and setter methods
-import lombok.Getter;
-import lombok.Setter;
+import java.util.Objects;
 
-// Annotation to generate getter and setter methods automatically
-@Getter
-@Setter
-public class FileUser {
+public class FileUser{
 
-    // Fields to store user ID and username
     private String id;
     private String userName;
 
-    // Constructor with parameters for user ID and username
+
     public FileUser(String id, String userName) {
         this.id = id;
         this.userName = userName;
     }
 
-    // Default constructor
+
     public FileUser() {
     }
 
-    // Override toString() method to provide a string representation of the object
+
+    public String getId() {
+        return id;
+    }
+
+
+    public String getUserName() {
+        return userName;
+    }
+
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+
     @Override
     public String toString() {
         return "FileUser [id=" + id + ", userName=" + userName + "]";
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        FileUser fileUser = (FileUser) o;
+        return Objects.equals(id, fileUser.id) && Objects.equals(userName, fileUser.userName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, userName);
     }
 }
