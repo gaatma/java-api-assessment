@@ -1,22 +1,32 @@
 # **Secure File Upload API**
 ### Table of Contents
-- Introduction
-- Getting Started
-- Prerequisites
-- Setup
-- Testing
-- Features
-- Tools Used
-- Code Overview
-- Challenges and Solutions
-- API Endpoints
-- Additional Information
-- Author
-- Demo
-- Deployment
-- Roadmap
-- Methods for CRUD Operations
-- Algorithm
+<!-- TOC -->
+* [**Secure File Upload API**](#secure-file-upload-api)
+    * [Table of Contents](#table-of-contents)
+  * [**Introduction**](#introduction)
+  * [🚀 About Me](#-about-me)
+  * [Getting Started](#getting-started)
+  * [Prerequisites](#prerequisites)
+    * [Setup](#setup)
+      * [1. Clone the Repository](#1-clone-the-repository)
+      * [2. Install Dependencies](#2-install-dependencies)
+    * [3. Running the Application:](#3-running-the-application)
+    * [Testing](#testing)
+    * [Features](#features)
+    * [Tools Used](#tools-used)
+    * [Code Overview](#code-overview)
+    * [Challenges and Solutions](#challenges-and-solutions)
+    * [API Endpoints](#api-endpoints)
+    * [Methods for CRUD Operations](#methods-for-crud-operations)
+    * [Algorithm](#algorithm)
+    * [Additional Information](#additional-information)
+    * [Evidence of Inheritance](#evidence-of-inheritance)
+  * [Responses](#responses)
+    * [Roadmap](#roadmap)
+  * [Authors](#authors)
+<!-- TOC -->
+
+
 ## **Introduction**
 The Secure File Upload API is designed to handle the secure upload of files with a focus on robust security measures. It facilitates CRUD operations for file management, including file upload, retrieval, update, and deletion. The API stores file information in a JSON file and implements features for file validation and malware scanning to ensure the security of uploaded files.
 
@@ -44,6 +54,7 @@ Before you begin, make sure you have the following installed:
 Also make sure you have accounts for the following:
 
 1. [GitHub](https://github.com/signup)
+
 
 ### Setup
 
@@ -85,13 +96,21 @@ You should see console output similar to the following (press `Ctrl + C` to exit
 
 ![Running_the_API.PNG](Running_the_API.PNG)
 
+
+
 ### Testing
 Unit testing was performed on two classes:
 **FileService Class** and **FileUtil Class** to ensure correctness and robustness.
+
 - **FileService Class Test Output**
+
+
 ![FileServiceTest.PNG](FileServiceTest.PNG)
 
+
  - **FileUtil Class Test Output**
+
+
 ![FileUtilTest.PNG](FileUtilTest.PNG)
 
 ### Features
@@ -100,11 +119,14 @@ Unit testing was performed on two classes:
 - **Update:** Modifies file information in the JSON file when needed.
 - **Delete:** Removes uploaded files from the JSON file.
 
+
+
 ### Tools Used
 - **Swagger:** Used for API documentation and testing. [Swagger UI](http://localhost:8080/swagger-ui/index.html#/)
 - **Lombok:** Simplified the creation of Java entities.
 - **Trello:** Used for project outlining and progress tracking. [Project Board](https://trello.com/b/8Ciyy5Tv/java-projects)
 - **Postman:** Used for API testing. [POSTMAN](https://documenter.getpostman.com/view/32424940/2sA2r824bZ)
+
 
 ### Code Overview
 The project consists of the following classes:
@@ -117,11 +139,13 @@ The project consists of the following classes:
 - **FileModel:** Represents the file entity containing file metadata.
 - **ValidateFileException:** Custom exception for file validation errors.
 
+
 ### Challenges and Solutions
  - Postman Usage: Initially, using Postman presented a learning curve, but it was overcome by watching online tutorials to improve proficiency.
  - Custom Response Format: Created a specific response format (FileBaseResponse) to enhance the API response.
  - Development Environment: Transitioned from VS Code to IntelliJ for improved development speed and performance.
  - JSON File Creation: Faced challenges in creating a custom JSON file in the resource directory for storing uploaded file details.
+
 
 ### API Endpoints
  - POST /api/file: Upload a file with the specified uploader name.
@@ -130,6 +154,7 @@ The project consists of the following classes:
  - PUT /api/file/update: Update information about an uploaded file.
  - DELETE /api/file/delete/{id}: Delete an uploaded file by its ID.
    
+
 ### Methods for CRUD Operations
    - processUploadedFile: Method to upload a file and store relevant information in the JSON file.
    - getAllUploadedFiles: Method to retrieve information about all uploaded files.
@@ -141,7 +166,9 @@ The project consists of the following classes:
 ### Algorithm
  - The project utilizes the Collections.sort() to sort the list of uploaded files in descending order based on timestamp.
  - Collections.sort() uses the merge sort algorithm under the hood to perform the sorting operation.
-**Below is the output of the getAllUploadedFiles method sorted by the algorithm**
+ - **Below is the output of the getAllUploadedFiles method sorted by the algorithm**
+
+
 ![Algorithm.PNG](Algorithm.PNG)
 
  - **File Upload Algorithm:**
@@ -157,17 +184,24 @@ Upon successful validation, the details of the file are extracted using built-in
 An ID is generated for the uploaded file.
 The file details, along with the generated ID, are saved in the JSON file for future reference.
 
+
+
 ### Additional Information
+
  - Swagger: Access the API documentation and testing interface at [Swagger UI](http://localhost:8080/swagger-ui/index.html#/)
 
 ![SWAGGER.PNG](SWAGGER.PNG)
 
 - Postman Collection: Use Postman for API testing and import the collection from the provided link. [POSTMAN](https://documenter.getpostman.com/view/32424940/2sA2r824bZ)
 
+
 ![POSTMAN.PNG](POSTMAN.PNG)
+
+
 
 ### Evidence of Inheritance
 - I created a custom exception class called ValidateFileException to extends the already existing Exception Class in Java
+
 
 
 ## Responses
@@ -178,9 +212,12 @@ The file details, along with the generated ID, are saved in the JSON file for fu
 | 500 |  Internel Server Error |
 | 400| Bad Request|
 
+
+
 ### Roadmap
 The roadmap for this project entails developing an API that ensures secure file uploads.
 This involves addressing potential security risks such as file validation, scanning for malware, and implementing measures to prevent common vulnerabilities like file-based attacks.
+
 
 
 ## Authors
