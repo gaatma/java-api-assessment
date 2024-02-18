@@ -82,8 +82,8 @@ mvnw spring-boot:run
 ```
 
 You should see console output similar to the following (press `Ctrl + C` to exit):
-![](C:\Users\admin\Desktop\Running the API.PNG)
-![Running the API.PNG](..%2F..%2FRunning%20the%20API.PNG)
+
+![Running_the_API.PNG](Running_the_API.PNG)
 
 ### Testing
 Unit testing was performed on two classes:
