@@ -131,8 +131,9 @@ The project consists of the following classes:
    - updateUploadedFile: Method to update information about an uploaded file.
    - deleteUploadedFile: Method to delete an uploaded file by its ID.
 ### Algorithm
- - The project utilizes an algorithm to sort the list of uploaded files in descending order based on timestamp.
-# File Upload Algorithm:
+ - The project utilizes the Collections.sort() to sort the list of uploaded files in descending order based on timestamp.
+ - Collections.sort() uses the merge sort algorithm under the hood to perform the sorting operation.
+ **File Upload Algorithm:**
 - **Receive File:**
 The API receives the file to be uploaded as a MultipartFile object.
 - **Validate File:**
@@ -149,8 +150,8 @@ The file details, along with the generated ID, are saved in the JSON file for fu
 Swagger: Access the API documentation and testing interface at Swagger UI
 Postman Collection: Use Postman for API testing and import the collection from the provided link.
 
-### Inheritance
-
+### Evidence of Inheritance
+- I created a custom exception class called ValidateFileException to extends the already existing Exception Class in Java
 
 
 ## Responses
