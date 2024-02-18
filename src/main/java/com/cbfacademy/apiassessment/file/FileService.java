@@ -6,6 +6,8 @@ import java.security.SecureRandom;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.UUID;
 
@@ -103,6 +105,10 @@ public class FileService {
         try {
             // Attempt to read the file information from the JSON file using the fileUtil
             List<FileModel> uploadedFiles = fileUtil.readFileInfoFromJsonFile();
+
+            // Sort the list in descending order based on timestamp
+            Collections.sort(uploadedFiles, Comparator.comparing(FileModel::getTimeStamp).reversed());
+
 
             // If successful, populate the response with the retrieved files
             response.setStatus(HttpStatus.OK.value());
