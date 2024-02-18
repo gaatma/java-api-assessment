@@ -1,5 +1,5 @@
 # **Secure File Upload API**
-- Table of Contents
+- ### Table of Contents
 - Introduction
 - Getting Started
 - Prerequisites
@@ -82,10 +82,16 @@ mvnw spring-boot:run
 ```
 
 You should see console output similar to the following (press `Ctrl + C` to exit):
-![Running the API.PNG](..%2F..%2FRunning%20the%20API.PNG)
+![](C:\Users\admin\Desktop\Running the API.PNG)
 
 ### Testing
-Unit testing was performed on key methods such as **processUploadFile** and **getAllUploadedFiles** to ensure correctness and robustness.
+Unit testing was performed on two classes:
+**FileService Class** and **FileUtil Class** to ensure correctness and robustness.
+- **FileService Class Test Output**
+![](C:\Users\admin\Desktop\FileServiceTest.PNG)
+
+ - **FileUtil Class Test Output**
+![](C:\Users\admin\Desktop\FileUtilTest.PNG)
 
 
 ### Features
@@ -95,10 +101,10 @@ Unit testing was performed on key methods such as **processUploadFile** and **ge
 - **Delete:** Removes uploaded files from the JSON file.
 
 ### Tools Used
-- **Swagger:** Used for API documentation and testing. Swagger UI
+- **Swagger:** Used for API documentation and testing. [Swagger UI](http://localhost:8080/swagger-ui/index.html#/)
 - **Lombok:** Simplified the creation of Java entities.
-- **Trello:** Used for project outlining and progress tracking. Project Board
-- **Postman:** Used for API testing.
+- **Trello:** Used for project outlining and progress tracking. [Project Board](https://trello.com/b/8Ciyy5Tv/java-projects)
+- **Postman:** Used for API testing. [POSTMAN](https://documenter.getpostman.com/view/32424940/2sA2r824bZ)
 
 ### Code Overview
 The project consists of the following classes:
@@ -130,10 +136,15 @@ The project consists of the following classes:
    - getUploadedFileById: Method to retrieve an uploaded file by its ID.
    - updateUploadedFile: Method to update information about an uploaded file.
    - deleteUploadedFile: Method to delete an uploaded file by its ID.
+
+
 ### Algorithm
  - The project utilizes the Collections.sort() to sort the list of uploaded files in descending order based on timestamp.
  - Collections.sort() uses the merge sort algorithm under the hood to perform the sorting operation.
- **File Upload Algorithm:**
+**Below is the output of the getAllUploadedFiles method sorted by the algorithm**
+![](C:\Users\admin\Desktop\Algorithm.PNG)
+
+ - **File Upload Algorithm:**
 - **Receive File:**
 The API receives the file to be uploaded as a MultipartFile object.
 - **Validate File:**
@@ -147,8 +158,11 @@ An ID is generated for the uploaded file.
 The file details, along with the generated ID, are saved in the JSON file for future reference.
 
 ### Additional Information
-Swagger: Access the API documentation and testing interface at Swagger UI
-Postman Collection: Use Postman for API testing and import the collection from the provided link.
+ - Swagger: Access the API documentation and testing interface at [Swagger UI](http://localhost:8080/swagger-ui/index.html#/)
+![](C:\Users\admin\Desktop\SWAGGER.PNG)
+
+- Postman Collection: Use Postman for API testing and import the collection from the provided link. [POSTMAN](https://documenter.getpostman.com/view/32424940/2sA2r824bZ)
+![](C:\Users\admin\Desktop\POSTMAN PIC.PNG)
 
 ### Evidence of Inheritance
 - I created a custom exception class called ValidateFileException to extends the already existing Exception Class in Java
