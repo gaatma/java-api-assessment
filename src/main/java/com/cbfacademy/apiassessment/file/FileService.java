@@ -34,7 +34,7 @@ public class FileService {
 
 
     // File utility class for file operations
-    private final FileUtil fileUtil;
+    public final FileUtil fileUtil;
 
     // Constructor with dependency injection for FileUtil
     public FileService(FileUtil fileUtil) throws IOException {
