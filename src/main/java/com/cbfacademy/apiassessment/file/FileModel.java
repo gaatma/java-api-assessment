@@ -1,18 +1,38 @@
 package com.cbfacademy.apiassessment.file;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Setter
+@Getter
+@ToString
 public class FileModel {
 
+    // Unique identifier for the file
     private String id;
+
+    // Name of the file
     private String fileName;
+
+    // Path where the file is stored
     private String filePath;
+
+    // Timestamp indicating when the file was uploaded
     private String timeStamp;
+
+    // Size of the file
     private String fileSize;
+
+    // Type of the file
     private String fileType;
+
+    // User who uploaded the file
     private FileUser user;
 
-    
+    // Constructors
     public FileModel(String id, String fileName, String filePath, String timeStamp, String fileSize, String fileType,
-            FileUser user) {
+                     FileUser user) {
         this.id = id;
         this.fileName = fileName;
         this.filePath = filePath;
@@ -21,74 +41,7 @@ public class FileModel {
         this.fileType = fileType;
         this.user = user;
     }
-
-    
-
 
     public FileModel() {
     }
-
-
-
-
-    public String getId() {
-        return id;
-    }
-    public void setId(String id) {
-        this.id = id;
-    }
-    public String getFileName() {
-        return fileName;
-    }
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
-    }
-    public String getFilePath() {
-        return filePath;
-    }
-    public void setFilePath(String filePath) {
-        this.filePath = filePath;
-    }
-    public String getTimeStamp() {
-        return timeStamp;
-    }
-    public void setTimeStamp(String timeStamp) {
-        this.timeStamp = timeStamp;
-    }
-    public String getFileSize() {
-        return fileSize;
-    }
-    public void setFileSize(String fileSize) {
-        this.fileSize = fileSize;
-    }
-    public String getFileType() {
-        return fileType;
-    }
-    public void setFileType(String fileType) {
-        this.fileType = fileType;
-    }
-    public FileUser getUser() {
-        return user;
-    }
-    public void setUser(FileUser user) {
-        this.user = user;
-    }
-
-
-
-
-    @Override
-    public String toString() {
-        return "FileModel [id=" + id + ", fileName=" + fileName + ", filePath=" + filePath + ", timeStamp=" + timeStamp
-                + ", fileSize=" + fileSize + ", fileType=" + fileType + ", user=" + user + "]";
-    }
-
-    
-
-    
-
-    
-
-
-    
 }

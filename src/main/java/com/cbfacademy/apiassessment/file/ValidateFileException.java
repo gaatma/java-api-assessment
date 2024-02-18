@@ -1,7 +1,9 @@
 package com.cbfacademy.apiassessment.file;
 
-public class ValidateFileException extends Exception{
+// Custom exception class to handle file validation errors
+public class ValidateFileException extends Exception {
 
+    // Constructor to initialize the exception with a custom error message
     public ValidateFileException(String message) {
         super(message);
     }

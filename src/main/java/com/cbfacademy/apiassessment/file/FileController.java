@@ -33,14 +33,14 @@ public class FileController {
     }
 
 
-    // Retrieve all uploaded files
+    // Retrieve all uploaded files endpoint
     @GetMapping("/all")
     public ResponseEntity<FileBaseResponse> getAllUploadedFiles() {
        return fileService.getAllUploadedFiles();
 
     }
 
-    // Get uploaded file by ID
+    // Get uploaded file by ID endpoint
     @GetMapping("/{id}")
     public ResponseEntity<FileBaseResponse> getUploadedFileById(@PathVariable String id) {
         System.out.println(id);
@@ -48,7 +48,7 @@ public class FileController {
     }
 
 
-    // Update uploaded file
+    // Update uploaded file endpoint
     @PutMapping("/update")
     public ResponseEntity<FileBaseResponse> updateUploadedFile(@RequestBody FileModel updatedFile) {
        return fileService.updateUploadedFile(updatedFile);
@@ -57,7 +57,7 @@ public class FileController {
 
 
 
-    // Delete uploaded file by ID
+    // Delete uploaded file by ID endpoint
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<FileBaseResponse> deleteUploadedFile(@PathVariable String id) {
         return fileService.deleteUploadedFile(id);

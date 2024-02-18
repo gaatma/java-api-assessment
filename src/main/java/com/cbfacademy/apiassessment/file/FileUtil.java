@@ -59,7 +59,8 @@ public class FileUtil {
         }
     }
 
-    
+
+    // Method to save uploaded file to the local disk
     public String saveFileToLocalDisk(MultipartFile file, String uploadsDir) throws IOException {
         Path filePath = Path.of(uploadsDir, file.getOriginalFilename());
         Files.createDirectories(filePath.getParent());
@@ -67,6 +68,7 @@ public class FileUtil {
         return filePath.toString();
     }
 
+    // Method to save file information to the JSON file
     public void saveFileInfoToJsonFile(List<FileModel> fileInfoList) {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
@@ -76,23 +78,23 @@ public class FileUtil {
         }
     }
 
+    // Method to read file information from the JSON file
     public List<FileModel> readFileInfoFromJsonFile() {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             File file = new File(JSON_FILE);
-    
+
             if (!file.exists()) {
                 return new ArrayList<>();
             }
-    
+
             return objectMapper.readValue(file, new TypeReference<List<FileModel>>() {});
         } catch (IOException e) {
             throw new RuntimeException("Failed to read file info from JSON file.", e);
         }
     }
 
-
-    // Update uploaded file information
+    // Method to update uploaded file information
     public FileModel updateUploadedFile(FileModel updatedFile) {
         List<FileModel> fileModels = readFileInfoFromJsonFile();
         for (int i = 0; i < fileModels.size(); i++) {
@@ -105,8 +107,7 @@ public class FileUtil {
         throw new RuntimeException("Uploaded file with id " + updatedFile.getId() + " not found.");
     }
 
-
-    // Delete uploaded file by ID
+    // Method to delete uploaded file by ID
     public void deleteUploadedFile(String id) {
         List<FileModel> fileModels = readFileInfoFromJsonFile();
         for (int i = 0; i < fileModels.size(); i++) {
@@ -119,7 +120,7 @@ public class FileUtil {
         throw new RuntimeException("Uploaded file with id " + id + " not found.");
     }
 
-    // Get uploaded file by ID
+    // Method to get uploaded file by ID
     public FileModel getUploadedFileById(String id) {
         List<FileModel> fileModels = readFileInfoFromJsonFile();
         for (FileModel fileModel : fileModels) {
