@@ -13,6 +13,7 @@ public class FileModel {
     private FileUser user;
 
 
+    // Constructor with parameters
     public FileModel(String id, String fileName, String filePath, String timeStamp, String fileSize, String fileType,
             FileUser user) {
         this.id = id;
@@ -27,12 +28,14 @@ public class FileModel {
 
 
 
+    // Default constructor
     public FileModel() {
     }
 
 
 
 
+    // Getter and setter methods for each field
     public String getId() {
         return id;
     }
@@ -79,13 +82,14 @@ public class FileModel {
 
 
 
+    // toString method to represent the object as a string
     @Override
     public String toString() {
         return "FileModel [id=" + id + ", fileName=" + fileName + ", filePath=" + filePath + ", timeStamp=" + timeStamp
                 + ", fileSize=" + fileSize + ", fileType=" + fileType + ", user=" + user + "]";
     }
 
-
+    // equals and hashCode methods for comparing objects based on their attributes
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
