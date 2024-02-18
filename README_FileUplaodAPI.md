@@ -1,5 +1,5 @@
 # **Secure File Upload API**
-- ### Table of Contents
+### Table of Contents
 - Introduction
 - Getting Started
 - Prerequisites
@@ -89,11 +89,10 @@ You should see console output similar to the following (press `Ctrl + C` to exit
 Unit testing was performed on two classes:
 **FileService Class** and **FileUtil Class** to ensure correctness and robustness.
 - **FileService Class Test Output**
-![](C:\Users\admin\Desktop\FileServiceTest.PNG)
+![FileServiceTest.PNG](FileServiceTest.PNG)
 
  - **FileUtil Class Test Output**
-![](C:\Users\admin\Desktop\FileUtilTest.PNG)
-
+![FileUtilTest.PNG](FileUtilTest.PNG)
 
 ### Features
 - **Upload:** Accepts file uploads, validates the files, and stores relevant information in a JSON file.
@@ -143,7 +142,7 @@ The project consists of the following classes:
  - The project utilizes the Collections.sort() to sort the list of uploaded files in descending order based on timestamp.
  - Collections.sort() uses the merge sort algorithm under the hood to perform the sorting operation.
 **Below is the output of the getAllUploadedFiles method sorted by the algorithm**
-![](C:\Users\admin\Desktop\Algorithm.PNG)
+![Algorithm.PNG](Algorithm.PNG)
 
  - **File Upload Algorithm:**
 - **Receive File:**
@@ -160,10 +159,12 @@ The file details, along with the generated ID, are saved in the JSON file for fu
 
 ### Additional Information
  - Swagger: Access the API documentation and testing interface at [Swagger UI](http://localhost:8080/swagger-ui/index.html#/)
-![](C:\Users\admin\Desktop\SWAGGER.PNG)
+
+![SWAGGER.PNG](SWAGGER.PNG)
 
 - Postman Collection: Use Postman for API testing and import the collection from the provided link. [POSTMAN](https://documenter.getpostman.com/view/32424940/2sA2r824bZ)
-![](C:\Users\admin\Desktop\POSTMAN PIC.PNG)
+
+![POSTMAN.PNG](POSTMAN.PNG)
 
 ### Evidence of Inheritance
 - I created a custom exception class called ValidateFileException to extends the already existing Exception Class in Java
