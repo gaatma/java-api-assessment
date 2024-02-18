@@ -23,12 +23,16 @@ public class FileUtil {
 
 
     // Directory where files will be uploaded
+    private static final String RESOURCES_DIRECTORY = "src/main/resources";
+    private static final String UPLOADS_DIRECTORY = "uploads";
+    private static final String JSON_FILE_NAME = "uploaded_files.json";
+
     Resource jsonResource = new ClassPathResource("uploads/uploaded_files.json");
 
     public final String JSON_FILE;
 
     public FileUtil() throws IOException {
-        JSON_FILE  = jsonResource.getFile().getAbsolutePath();
+        JSON_FILE = RESOURCES_DIRECTORY + "/" + UPLOADS_DIRECTORY + "/" + JSON_FILE_NAME;
     }
 
 

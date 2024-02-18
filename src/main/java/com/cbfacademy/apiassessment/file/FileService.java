@@ -25,12 +25,10 @@ import org.springframework.web.multipart.MultipartFile;
 public class FileService {
 
 
-
-
     // Directory where files will be uploaded
-    Resource jsonResource = new ClassPathResource("uploads");
+    private static final String RESOURCES_DIRECTORY = "src/main/resources";
+    private static final String UPLOADS_DIRECTORY = "uploads";
     public final String UPLOAD_DIRECTORY;
-
 
 
     // File utility class for file operations
@@ -41,8 +39,7 @@ public class FileService {
 
         this.fileUtil = fileUtil;
 
-        UPLOAD_DIRECTORY = jsonResource.getFile().getAbsolutePath();
-
+        UPLOAD_DIRECTORY = RESOURCES_DIRECTORY + "/" + UPLOADS_DIRECTORY;
     }
 
         // Method to process uploaded file
