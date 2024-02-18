@@ -11,8 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import org.apache.tomcat.jni.FileInfo;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
@@ -22,9 +21,18 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @Component
 public class FileUtil {
 
-    public final String JSON_FILE = "uploadfiles\\uploaded_files.json";
 
-        public String generateFileId() {
+    // Directory where files will be uploaded
+    Resource jsonResource = new ClassPathResource("uploads/uploaded_files.json");
+
+    public final String JSON_FILE;
+
+    public FileUtil() throws IOException {
+        JSON_FILE  = jsonResource.getFile().getAbsolutePath();
+    }
+
+
+    public String generateFileId() {
         // Generate a random UUID
         UUID randomUUID = UUID.randomUUID();
         // Convert the UUID to a string
@@ -50,6 +58,7 @@ public class FileUtil {
         return formattedTimestamp;
     }
 
+    // Method to Validate uploaded file
      public void validateFile(MultipartFile file) throws ValidateFileException {
         // Implement file validation logic (e.g., file type, size, etc.)
         if (file.isEmpty() || !file.getContentType().startsWith("image")) {

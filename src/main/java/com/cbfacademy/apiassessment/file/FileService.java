@@ -28,18 +28,24 @@ public class FileService {
 
 
     // Directory where files will be uploaded
-    private final String UPLOAD_DIRECTORY = "uploadfiles";
+    Resource jsonResource = new ClassPathResource("uploads");
+    public final String UPLOAD_DIRECTORY;
+
+
 
     // File utility class for file operations
     private final FileUtil fileUtil;
 
     // Constructor with dependency injection for FileUtil
-    public FileService(FileUtil fileUtil) {
+    public FileService(FileUtil fileUtil) throws IOException {
 
         this.fileUtil = fileUtil;
+
+        UPLOAD_DIRECTORY = jsonResource.getFile().getAbsolutePath();
+
     }
 
-    // Method to process uploaded file
+        // Method to process uploaded file
     public ResponseEntity<FileBaseResponse> processUploadedFile(MultipartFile file, String userInfo) {
         FileBaseResponse fileBaseResponse = new FileBaseResponse();
         HttpStatus httpStatus;
