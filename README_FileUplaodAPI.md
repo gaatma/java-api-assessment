@@ -188,11 +188,11 @@ The file details, along with the generated ID, are saved in the JSON file for fu
 
 ## Additional Information
 
- - Swagger: Access the API documentation and testing interface at [Swagger UI](http://localhost:8080/swagger-ui/index.html#/)
+ - **Swagger:** Access the API documentation and testing interface at [Swagger UI](http://localhost:8080/swagger-ui/index.html#/)
 
 ![SWAGGER.PNG](SWAGGER.PNG)
 
-- Postman Collection: Use Postman for API testing and import the collection from the provided link. [POSTMAN](https://documenter.getpostman.com/view/32424940/2sA2r824bZ)
+- **Postman Collection:** Use Postman for API testing and import the collection from the provided link. [POSTMAN](https://documenter.getpostman.com/view/32424940/2sA2r824bZ)
 
 
 ![POSTMAN.PNG](POSTMAN.PNG)
