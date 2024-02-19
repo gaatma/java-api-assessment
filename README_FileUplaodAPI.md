@@ -7,22 +7,22 @@
   * [🚀 About Me](#-about-me)
   * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
-    * [Setup](#setup)
+  * [Setup](#setup)
       * [1. Clone the Repository](#1-clone-the-repository)
       * [2. Install Dependencies](#2-install-dependencies)
     * [3. Running the Application:](#3-running-the-application)
-    * [Testing](#testing)
-    * [Features](#features)
-    * [Tools Used](#tools-used)
-    * [Code Overview](#code-overview)
-    * [Challenges and Solutions](#challenges-and-solutions)
-    * [API Endpoints](#api-endpoints)
-    * [Methods for CRUD Operations](#methods-for-crud-operations)
-    * [Algorithm](#algorithm)
-    * [Additional Information](#additional-information)
-    * [Evidence of Inheritance](#evidence-of-inheritance)
+  * [Testing](#testing)
+  * [Features](#features)
+  * [Tools Used](#tools-used)
+  * [Code Overview](#code-overview)
+  * [Challenges and Solutions](#challenges-and-solutions)
+  * [API Endpoints](#api-endpoints)
+  * [Methods for CRUD Operations](#methods-for-crud-operations)
+  * [Algorithm](#algorithm)
+  * [Additional Information](#additional-information)
+  * [Evidence of Inheritance](#evidence-of-inheritance)
   * [Responses](#responses)
-    * [Roadmap](#roadmap)
+  * [Roadmap](#roadmap)
   * [Authors](#authors)
 <!-- TOC -->
 
@@ -56,7 +56,7 @@ Also make sure you have accounts for the following:
 1. [GitHub](https://github.com/signup)
 
 
-### Setup
+## Setup
 
 #### 1. Clone the Repository
 
@@ -98,7 +98,7 @@ You should see console output similar to the following (press `Ctrl + C` to exit
 
 
 
-### Testing
+## Testing
 Unit testing was performed on two classes:
 **FileService Class** and **FileUtil Class** to ensure correctness and robustness.
 
@@ -113,7 +113,7 @@ Unit testing was performed on two classes:
 
 ![FileUtilTest.PNG](FileUtilTest.PNG)
 
-### Features
+## Features
 - **Upload:** Accepts file uploads, validates the files, and stores relevant information in a JSON file.
 - **Retrieve:** Retrieves information about uploaded files, allowing queries based on various criteria.
 - **Update:** Modifies file information in the JSON file when needed.
@@ -121,14 +121,14 @@ Unit testing was performed on two classes:
 
 
 
-### Tools Used
+## Tools Used
 - **Swagger:** Used for API documentation and testing. [Swagger UI](http://localhost:8080/swagger-ui/index.html#/)
 - **Lombok:** Simplified the creation of Java entities.
 - **Trello:** Used for project outlining and progress tracking. [Project Board](https://trello.com/b/8Ciyy5Tv/java-projects)
 - **Postman:** Used for API testing. [POSTMAN](https://documenter.getpostman.com/view/32424940/2sA2r824bZ)
 
 
-### Code Overview
+## Code Overview
 The project consists of the following classes:
 
 - **FileBaseResponse:** Defines the response format for API operations.
@@ -140,14 +140,14 @@ The project consists of the following classes:
 - **ValidateFileException:** Custom exception for file validation errors.
 
 
-### Challenges and Solutions
+## Challenges and Solutions
  - Postman Usage: Initially, using Postman presented a learning curve, but it was overcome by watching online tutorials to improve proficiency.
  - Custom Response Format: Created a specific response format (FileBaseResponse) to enhance the API response.
  - Development Environment: Transitioned from VS Code to IntelliJ for improved development speed and performance.
  - JSON File Creation: Faced challenges in creating a custom JSON file in the resource directory for storing uploaded file details.
 
 
-### API Endpoints
+## API Endpoints
  - POST /api/file: Upload a file with the specified uploader name.
  - GET /api/file/all: Retrieve all uploaded files.
  - GET /api/file/{id}: Retrieve an uploaded file by its ID.
@@ -155,7 +155,7 @@ The project consists of the following classes:
  - DELETE /api/file/delete/{id}: Delete an uploaded file by its ID.
    
 
-### Methods for CRUD Operations
+## Methods for CRUD Operations
    - processUploadedFile: Method to upload a file and store relevant information in the JSON file.
    - getAllUploadedFiles: Method to retrieve information about all uploaded files.
    - getUploadedFileById: Method to retrieve an uploaded file by its ID.
@@ -163,7 +163,7 @@ The project consists of the following classes:
    - deleteUploadedFile: Method to delete an uploaded file by its ID.
 
 
-### Algorithm
+## Algorithm
  - The project utilizes the Collections.sort() to sort the list of uploaded files in descending order based on timestamp.
  - Collections.sort() uses the merge sort algorithm under the hood to perform the sorting operation.
  - **Below is the output of the getAllUploadedFiles method sorted by the algorithm**
@@ -186,7 +186,7 @@ The file details, along with the generated ID, are saved in the JSON file for fu
 
 
 
-### Additional Information
+## Additional Information
 
  - Swagger: Access the API documentation and testing interface at [Swagger UI](http://localhost:8080/swagger-ui/index.html#/)
 
@@ -199,7 +199,7 @@ The file details, along with the generated ID, are saved in the JSON file for fu
 
 
 
-### Evidence of Inheritance
+## Evidence of Inheritance
 - I created a custom exception class called ValidateFileException to extends the already existing Exception Class in Java
 
 
@@ -214,7 +214,7 @@ The file details, along with the generated ID, are saved in the JSON file for fu
 
 
 
-### Roadmap
+## Roadmap
 The roadmap for this project entails developing an API that ensures secure file uploads.
 This involves addressing potential security risks such as file validation, scanning for malware, and implementing measures to prevent common vulnerabilities like file-based attacks.
 
